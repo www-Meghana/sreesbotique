@@ -1,243 +1,208 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Clothes Boutique</title>
-    <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #737cfa; padding: 20px; text-align: center; color: white; }
-    header h1 { font-family: 'Pacifico', cursive; margin: 0; font-size: 2.5em; }
-    nav { display: flex; justify-content: space-around; align-items: center; background: #8c52ff; padding: 10px; }
-    nav a, nav span { color: white; text-decoration: none; font-weight: bold; cursor: pointer; }
-    .products { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 20px; }
-    .product { border: 1px solid #ccc; padding: 15px; width: 220px; border-radius: 10px; box-shadow: 0 0 8px #ddd; text-align: center; }
-    .product img { width: 100%; border-radius: 10px; }
-    .btn { margin-top: 10px; padding: 10px; background: #6a2c70; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    footer { background: #444; color: white; text-align: center; padding: 10px; margin-top: 30px; }
-    #cart { display: none; padding: 20px; text-align: center; }
-    #cart ul { list-style: none; padding: 0; }
-    #cart ul li { margin-bottom: 10px; }
-    .cart-icon { font-size: 1.2em; position: relative; cursor: pointer; }
-    .cart-count {
-      position: absolute;
-      top: -5px;
-      right: -10px;
-      background: red;
-      color: white;
-      font-size: 0.5em;
-      padding: 2px 5px;
-      border-radius: 50%;
-    }
-    .contact-section { padding: 40px; text-align: center; background-color: #f9f9f9; }
-    .contact-info { display: inline-block; text-align: left; max-width: 300px; margin: 20px; }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Mini Boutique</h1>
-  </header>
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Prologue by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
 
-  <nav>
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('new-arrivals')">New Arrivals</a>
-    <a onclick="showSection('best-sellers')">Best Sellers</a>
-    <a onclick="showSection('contact')">Contact Us</a>
-    <span class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count" class="cart-count">0</span></span>
-  </nav>
+		<!-- Header -->
+			<div id="header">
 
-  <div id="home" class="products">
-    <!-- 12 items for the home page -->
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 1" />
-      <h3>Item 1</h3>
-      <p>Price: ₹999</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('Item 1', 999)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 2" />
-      <h3>Item 2</h3>
-      <p>Price: ₹799</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Item 2', 799)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 3" />
-      <h3>Item 3</h3>
-      <p>Price: ₹899</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('Item 3', 899)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 4" />
-      <h3>Item 4</h3>
-      <p>Price: ₹1099</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Item 4', 1099)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 5" />
-      <h3>Item 5</h3>
-      <p>Price: ₹1299</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Item 5', 1299)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 6" />
-      <h3>Item 6</h3>
-      <p>Price: ₹799</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Item 6', 799)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 7" />
-      <h3>Item 7</h3>
-      <p>Price: ₹899</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Item 7', 899)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 8" />
-      <h3>Item 8</h3>
-      <p>Price: ₹999</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('Item 8', 999)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 9" />
-      <h3>Item 9</h3>
-      <p>Price: ₹1099</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Item 9', 1099)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 10" />
-      <h3>Item 10</h3>
-      <p>Price: ₹799</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('Item 10', 799)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Item 11" />
-      <h3>Item 11</h3>
-      <p>Price: ₹1499</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('Item 11', 1499)">Add to Cart</button>
-    </div>
-  </div>
+				<div class="top">
 
-  <div id="new-arrivals" class="products" style="display:none;">
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="New Arrival 1" />
-      <h3>New Arrival 1</h3>
-      <p>Price: ₹999</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('New Arrival 1', 999)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="New Arrival 2" />
-      <h3>New Arrival 2</h3>
-      <p>Price: ₹899</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('New Arrival 2', 899)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="New Arrival 3" />
-      <h3>New Arrival 3</h3>
-      <p>Price: ₹1099</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('New Arrival 3', 1099)">Add to Cart</button>
-    </div>
-  </div>
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+							<h1 id="title">Jane Doe</h1>
+							<p>Hyperspace Engineer</p>
+						</div>
 
-  <div id="best-sellers" class="products" style="display:none;">
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Best Seller 1" />
-      <h3>Best Seller 1</h3>
-      <p>Price: ₹1299</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Best Seller 1', 1299)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Best Seller 2" />
-      <h3>Best Seller 2</h3>
-      <p>Price: ₹1499</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('Best Seller 2', 1499)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Best Seller 3" />
-      <h3>Best Seller 3</h3>
-      <p>Price: ₹799</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐⭐</p>
-      <button class="btn" onclick="addToCart('Best Seller 3', 799)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/250x300" alt="Best Seller 4" />
-      <h3>Best Seller 4</h3>
-      <p>Price: ₹999</p>
-      <p><strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <button class="btn" onclick="addToCart('Best Seller 4', 999)">Add to Cart</button>
-    </div>
-  </div>
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
 
-  <div id="cart">
-    <h2>Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <p><strong>Total: ₹<span id="cart-total">0</span></strong></p>
-  </div>
+				</div>
 
-  <div id="contact" class="contact-section">
-    <h2>Contact Us</h2>
-    <div class="contact-info">
-      <p>Email: support@miniboutique.com</p>
-      <p>Phone: +91-9999999999</p>
-      <p>Address: #201 Fashion Street, Bangalore, India</p>
-    </div>
-  </div>
+				<div class="bottom">
 
-  <footer>
-    <p>© 2025 Mini Boutique. All rights reserved.</p>
-  </footer>
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
 
-  <script>
-    let cart = [];
+				</div>
 
-    function showSection(section) {
-      document.querySelectorAll('.products').forEach(p => p.style.display = 'none');
-      document.getElementById('cart').style.display = 'none';
-      document.getElementById('contact').style.display = 'none';
-      document.getElementById(section).style.display = 'flex';
-    }
+			</div>
 
-    function toggleCart() {
-      const cartEl = document.getElementById('cart');
-      document.querySelectorAll('.products').forEach(p => p.style.display = 'none');
-      document.getElementById('contact').style.display = 'none';
-      cartEl.style.display = cartEl.style.display === 'none' ? 'block' : 'none';
-      updateCart();
-    }
+		<!-- Main -->
+			<div id="main">
 
-    function addToCart(item, price) {
-      cart.push({ name: item, price });
-      document.getElementById('cart-count').innerText = cart.length;
-      updateCart();
-    }
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
 
-    function updateCart() {
-      const list = document.getElementById('cart-items');
-      const totalEl = document.getElementById('cart-total');
-      list.innerHTML = '';
-      let total = 0;
-      cart.forEach(({ name, price }) => {
-        const li = document.createElement('li');
-        li.textContent = `${name} - ₹${price}`;
-        list.appendChild(li);
-        total += price;
-      });
-      totalEl.innerText = total;
-    }
-  </script>
-</body>
+							<header>
+								<h2 class="alt">Hi! I'm <strong>Prologue</strong>, a <a href="http://html5up.net/license">free</a> responsive<br />
+								site template designed by <a href="http://html5up.net">HTML5 UP</a>.</h2>
+								<p>Ligula scelerisque justo sem accumsan diam quis<br />
+								vitae natoque dictum sollicitudin elementum.</p>
+							</header>
+
+							<footer>
+								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Portfolio</h2>
+							</header>
+
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
+							egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
+							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
+							fusce hendrerit lacus ridiculus.</p>
+
+							<div class="row">
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+										<header>
+											<h3>Ipsum Feugiat</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+										<header>
+											<h3>Rhoncus Semper</h3>
+										</header>
+									</article>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+										<header>
+											<h3>Magna Nullam</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+										<header>
+											<h3>Natoque Vitae</h3>
+										</header>
+									</article>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+										<header>
+											<h3>Dolor Penatibus</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										<header>
+											<h3>Orci Convallis</h3>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- About Me -->
+					<section id="about" class="three">
+						<div class="container">
+
+							<header>
+								<h2>About Me</h2>
+							</header>
+
+							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+
+							<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
+							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
+							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
+							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
+							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
+							ornare iaculis.</p>
+
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p>Elementum sem parturient nulla quam placerat viverra
+							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
+							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
+							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
+
+							<form method="post" action="#">
+								<div class="row">
+									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="col-12">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
